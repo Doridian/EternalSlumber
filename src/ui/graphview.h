@@ -23,8 +23,8 @@
  * (command 0x19) through wm_show(graphview_window(), ...). Context and
  * hooks: ui/views.h.
  */
-#ifndef AFTERLIFE_UI_GRAPHVIEW_H
-#define AFTERLIFE_UI_GRAPHVIEW_H
+#ifndef ETERNALSLUMBER_UI_GRAPHVIEW_H
+#define ETERNALSLUMBER_UI_GRAPHVIEW_H
 
 #include <stdbool.h>
 #include <stdint.h>

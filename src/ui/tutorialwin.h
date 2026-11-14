@@ -11,8 +11,8 @@
  * are the scripted ones (game/tutorial.h). Ported for completeness and
  * left unwired, like the original.
  */
-#ifndef AFTERLIFE_UI_TUTORIALWIN_H
-#define AFTERLIFE_UI_TUTORIALWIN_H
+#ifndef ETERNALSLUMBER_UI_TUTORIALWIN_H
+#define ETERNALSLUMBER_UI_TUTORIALWIN_H
 
 #include <stdbool.h>
 #include <stddef.h>

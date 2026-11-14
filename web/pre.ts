@@ -4,7 +4,7 @@
 //    plat_save_dir), lives in IndexedDB (IDBFS). It is loaded before main
 //    runs, and IDBFS's autoPersist writes it back whenever a file there is
 //    closed or deleted.
-//  - The game data is the package built in (AFTERLIFE_WASM_DATA, at /orig),
+//  - The game data is the package built in (ETERNALSLUMBER_WASM_DATA, at /orig),
 //    or else files the player picks once. Those are kept as blobs in an
 //    IndexedDB store of their own (IDBFS can't hold ALIFE.000: browsers
 //    cap a single serialized value below its 148 MB) and copied into
@@ -18,19 +18,20 @@ Module.preRun ??= [];
 
 (() => {
   const PREF = '/libsdl', USER = '/userdata', BUILTIN = '/orig';
+  // (the database keeps the port's old name, so browsers keep the CD they stored)
   const DATA_DB = 'afterlife-game-data', DATA_STORE = 'files';
   const params = new URLSearchParams(location.search);
   const started = performance.now();
   // the startup's timing, in the console (for checking a change to the loading)
   function mark(what: string): void {
-    console.info(`Afterlife startup: ${what} at ${Math.round(performance.now() - started)} ms`);
+    console.info(`EternalSlumber startup: ${what} at ${Math.round(performance.now() - started)} ms`);
   }
 
   // An element of web/shell.html, which must be there.
   function element<T extends HTMLElement>(id: string): T {
     const e = document.getElementById(id);
     if (!e)
-      throw new Error(`Afterlife: no #${id} in the page`);
+      throw new Error(`EternalSlumber: no #${id} in the page`);
     return e as T;
   }
 
@@ -98,7 +99,7 @@ Module.preRun ??= [];
     req.onupgradeneeded = () => { req.result.createObjectStore(DATA_STORE); };
     req.onsuccess = () => cb(req.result);
     req.onerror = () => {
-      console.warn('Afterlife: no IndexedDB for the game data', req.error);
+      console.warn('EternalSlumber: no IndexedDB for the game data', req.error);
       cb(null);
     };
   }
@@ -137,7 +138,7 @@ Module.preRun ??= [];
             done += n;
             progress('Loading game data...', done, total);
           }).catch((e) => {
-            console.warn(`Afterlife: reading stored ${name} failed`, e);
+            console.warn(`EternalSlumber: reading stored ${name} failed`, e);
           }).then(next);
         };
         next();
@@ -171,7 +172,7 @@ Module.preRun ??= [];
         cb();
       };
       tx.onerror = tx.onabort = () => {
-        console.warn('Afterlife: storing the game data failed (it will be asked for again)', tx.error);
+        console.warn('EternalSlumber: storing the game data failed (it will be asked for again)', tx.error);
         db.close();
         cb();
       };
@@ -250,21 +251,21 @@ Module.preRun ??= [];
       };
     }
     FS.mkdir(USER);
-    addRunDependency('afterlife-storage');
+    addRunDependency('eternalslumber-storage');
     Module.setStatus('Loading saved games...');
     const start = (dir: string): void => {
       Module.arguments.push(dir);
       params.getAll('arg').forEach((a) => Module.arguments.push(a));
       Module.setStatus('');
-      removeRunDependency('afterlife-storage');
+      removeRunDependency('eternalslumber-storage');
       mark('game starting');
     };
     FS.syncfs(true, (err) => {
       mark('browser storage read');
       if (err)
-        console.warn('Afterlife: reading browser storage failed', err);
+        console.warn('EternalSlumber: reading browser storage failed', err);
       if (Module.expectedDataFileDownloads) {
-        // A build with AFTERLIFE_WASM_DATA: its package is still being
+        // A build with ETERNALSLUMBER_WASM_DATA: its package is still being
         // fetched (IDBFS is usually done first), so wait for /orig to fill.
         const wait = () => {
           if (hasGameData(BUILTIN))
@@ -290,10 +291,10 @@ Module.preRun ??= [];
   Module.onExit = (status) => {
     element('ended').hidden = false;
     if (status)
-      element('ended-text').textContent = `Afterlife has ended (exit code ${status}).`;
+      element('ended-text').textContent = `EternalSlumber has ended (exit code ${status}).`;
   };
   Module.onAbort = (what) => {
     element('ended').hidden = false;
-    element('ended-text').textContent = `Afterlife has crashed: ${what}`;
+    element('ended-text').textContent = `EternalSlumber has crashed: ${what}`;
   };
 })();

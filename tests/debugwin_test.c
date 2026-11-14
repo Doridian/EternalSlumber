@@ -469,8 +469,8 @@ int main(int argc, char **argv)
     SDL_setenv_unsafe("SDL_VIDEODRIVER", "dummy", 1);
     SDL_setenv_unsafe("SDL_AUDIODRIVER", "dummy", 1);
 
-    char *no[] = {"afterlife", "--debug", "--debug-windows", NULL};
-    char *yes[] = {"afterlife", "x.ASC", "--debug-window", NULL};
+    char *no[] = {"eternalslumber", "--debug", "--debug-windows", NULL};
+    char *yes[] = {"eternalslumber", "x.ASC", "--debug-window", NULL};
     CHECK(!debugwin_requested(3, no));
     CHECK(debugwin_requested(3, yes));
 

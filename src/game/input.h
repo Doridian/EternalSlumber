@@ -10,8 +10,8 @@
  * window as message 0x1e (char), 0x1f (key down) or 0x20 (key up), and
  * tracks VK_SHIFT. kb_set_handler stores a callback nobody calls.
  */
-#ifndef AFTERLIFE_GAME_INPUT_H
-#define AFTERLIFE_GAME_INPUT_H
+#ifndef ETERNALSLUMBER_GAME_INPUT_H
+#define ETERNALSLUMBER_GAME_INPUT_H
 
 #include <stdbool.h>
 #include <stdint.h>

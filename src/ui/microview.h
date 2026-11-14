@@ -29,8 +29,8 @@
  * microview_key_slide(-2 / +2) (game_view_proc's message 0x177a).
  * Context and hooks: ui/views.h, microview_hooks below.
  */
-#ifndef AFTERLIFE_UI_MICROVIEW_H
-#define AFTERLIFE_UI_MICROVIEW_H
+#ifndef ETERNALSLUMBER_UI_MICROVIEW_H
+#define ETERNALSLUMBER_UI_MICROVIEW_H
 
 #include <stdbool.h>
 #include <stdint.h>

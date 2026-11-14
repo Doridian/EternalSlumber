@@ -12,8 +12,8 @@
  * choices. Here that sequence is a list of ops (ui/about_credits.c) that
  * about.c runs.
  */
-#ifndef AFTERLIFE_UI_ABOUT_H
-#define AFTERLIFE_UI_ABOUT_H
+#ifndef ETERNALSLUMBER_UI_ABOUT_H
+#define ETERNALSLUMBER_UI_ABOUT_H
 
 #include <stdbool.h>
 #include <stdint.h>

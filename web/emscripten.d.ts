@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 // The Emscripten runtime the glue (web/*.ts, the --pre-js files) runs in: what
 // it reads of Module, FS, IDBFS and the run dependencies. Declarations only,
-// the runtime itself is in the generated afterlife.js.
+// the runtime itself is in the generated eternalslumber.js.
 
 interface EmscriptenModule {
   arguments: string[];

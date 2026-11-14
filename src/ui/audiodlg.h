@@ -22,8 +22,8 @@
  * Settings\tF9" (MENU_AUDIO, shell_hooks.audio_dialog) shows and hides it;
  * its close box hides it and clears the menu's check mark.
  */
-#ifndef AFTERLIFE_UI_AUDIODLG_H
-#define AFTERLIFE_UI_AUDIODLG_H
+#ifndef ETERNALSLUMBER_UI_AUDIODLG_H
+#define ETERNALSLUMBER_UI_AUDIODLG_H
 
 #include <stdbool.h>
 #include <stdint.h>

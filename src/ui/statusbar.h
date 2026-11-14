@@ -6,8 +6,8 @@
  * and SOULs, lost SOULs, EMBOs and the soul rate at the bottom. Drawn into
  * the control panel window's surface (g_ctrlpanel_window).
  */
-#ifndef AFTERLIFE_UI_STATUSBAR_H
-#define AFTERLIFE_UI_STATUSBAR_H
+#ifndef ETERNALSLUMBER_UI_STATUSBAR_H
+#define ETERNALSLUMBER_UI_STATUSBAR_H
 
 /* 0x447243 statusbar_draw(ctrlpanel_window) */
 void statusbar_draw(void);

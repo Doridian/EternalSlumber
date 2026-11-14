@@ -10,8 +10,8 @@
  * advisors.c, news.c, about.c) share the globals below, which the
  * original keeps as plain globals too. Game code only; no SDL.
  */
-#ifndef AFTERLIFE_GAME_SHELL_H
-#define AFTERLIFE_GAME_SHELL_H
+#ifndef ETERNALSLUMBER_GAME_SHELL_H
+#define ETERNALSLUMBER_GAME_SHELL_H
 
 #include <stdbool.h>
 #include <stddef.h>

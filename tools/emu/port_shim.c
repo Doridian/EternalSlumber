@@ -1,8 +1,8 @@
 /* SPDX-License-Identifier: AGPL-3.0-or-later */
 /*
- * C entry points of libafterlife_port (the port built as a shared library
+ * C entry points of libeternalslumber_port (the port built as a shared library
  * for tools/emu, the differential-testing harness). Every non-static
- * function of afterlife_core is exported as is and can be called from
+ * function of eternalslumber_core is exported as is and can be called from
  * Python through ctypes; this file adds what can't be reached that way:
  * the static inline accessors of game/world.h, pointers into g_state and
  * g_world, and save/load helpers. Package-specific wrappers go into

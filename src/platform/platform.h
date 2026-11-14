@@ -9,8 +9,8 @@
  *   USER32 message pump, cursor      -> plat_pump, plat_event
  *   KERNEL32 file I/O                -> plat_fopen (case-insensitive lookup)
  */
-#ifndef AFTERLIFE_PLATFORM_H
-#define AFTERLIFE_PLATFORM_H
+#ifndef ETERNALSLUMBER_PLATFORM_H
+#define ETERNALSLUMBER_PLATFORM_H
 
 #include <stdbool.h>
 #include <stddef.h>
@@ -203,8 +203,11 @@ FILE *plat_fopen_data(const char *name);
 const char *plat_data_dir(void);
 bool plat_data_path(const char *name, char *out, size_t out_len);
 /* Port-only: `name` in the user's writable settings folder (created if
- * needed; ~/.local/share/Afterlife/Afterlife/ on Linux). */
+ * needed; ~/.local/share/EternalSlumber/EternalSlumber/ on Linux). */
 bool plat_pref_path(const char *name, char *out, size_t out_len);
+/* Port-only: that folder, with a trailing separator (SDL_free it), or NULL.
+ * The first call moves the folder of the port's old name ("Afterlife") over. */
+char *plat_pref_dir(void);
 /* Where saved games go when the platform has its own place for them
  * (WebAssembly: the pref folder, which web/pre.ts keeps in IndexedDB; the
  * data folder there is a package in memory), else NULL (the INI "Save

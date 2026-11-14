@@ -7,8 +7,8 @@
  * switches that pick one of several lines. Here that sequence is a list of
  * ops; targets are op indexes, comments give each call's address.
  */
-#ifndef AFTERLIFE_UI_ABOUT_INT_H
-#define AFTERLIFE_UI_ABOUT_INT_H
+#ifndef ETERNALSLUMBER_UI_ABOUT_INT_H
+#define ETERNALSLUMBER_UI_ABOUT_INT_H
 
 #include <stddef.h>
 #include <stdint.h>

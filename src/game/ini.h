@@ -4,8 +4,8 @@
  * which rescans the whole file line by line for a key prefix. See
  * docs/startup.md for the keys.
  */
-#ifndef AFTERLIFE_GAME_INI_H
-#define AFTERLIFE_GAME_INI_H
+#ifndef ETERNALSLUMBER_GAME_INI_H
+#define ETERNALSLUMBER_GAME_INI_H
 
 #include <stddef.h>
 

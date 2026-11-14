@@ -1,6 +1,6 @@
-# Afterlife
+# EternalSlumber
 
-A decompilation and native port of **Afterlife** (LucasArts, 1996) to portable
+EternalSlumber is a decompilation and native port of **Afterlife** (LucasArts, 1996) to portable
 C11 and SDL3, for Linux, Windows, macOS and WebAssembly.
 
 Status: **playable.** All of `ALIFE.EXE`'s game code is ported:
@@ -16,7 +16,7 @@ WebAssembly build runs the full game in a browser. Windows and macOS build
 and pass the data-less tests in CI (Windows passes the data tests under
 Wine too), but nobody has played them on real Windows or a Mac yet.
 
-**Play it in your browser:** <https://doridian.github.io/Afterlife/> (the page
+**Play it in your browser:** <https://doridian.github.io/EternalSlumber/> (the page
 asks for your CD once; see [WebAssembly](#building) below).
 
 ![A late-game city: the Karma rail network, a packed town and the SOUL count](docs/img/screenshot.png)
@@ -28,15 +28,15 @@ script can download for you from the Internet Archive.
 
 ## Downloads
 
-Each [release](https://github.com/Doridian/Afterlife/releases) has the port
+Each [release](https://github.com/Doridian/EternalSlumber/releases) has the port
 as one file per system, with no game data:
 
 | System | File |
 |---|---|
-| Linux (x86-64, arm64; glibc 2.35 or newer, as in Ubuntu 22.04) | `afterlife-x86_64.AppImage`, `afterlife-aarch64.AppImage` |
-| Windows (x86-64) | `afterlife-windows-x86_64.exe` |
-| macOS 11+ (Apple silicon and Intel) | `afterlife-macos.dmg` (the app; it isn't notarized: right-click → Open the first time) |
-| Browser | `afterlife-web.zip` (the page, as published on GitHub Pages) |
+| Linux (x86-64, arm64; glibc 2.35 or newer, as in Ubuntu 22.04) | `eternalslumber-x86_64.AppImage`, `eternalslumber-aarch64.AppImage` |
+| Windows (x86-64) | `eternalslumber-windows-x86_64.exe` |
+| macOS 11+ (Apple silicon and Intel) | `eternalslumber-macos.dmg` (the app; it isn't notarized: right-click → Open the first time) |
+| Browser | `eternalslumber-web.zip` (the page, as published on GitHub Pages) |
 
 Started from its icon, the port asks for the game files once: choose the
 CD (or a folder with its files, such as an installed Afterlife), or an
@@ -62,12 +62,12 @@ first.
 2. Get the code and the game data, then build and play:
 
    ```sh
-   git clone https://github.com/Doridian/Afterlife
-   cd Afterlife
+   git clone https://github.com/Doridian/EternalSlumber
+   cd EternalSlumber
    tools/fetch_archive_org.py orig/
    cmake --preset native
    cmake --build --preset native
-   build/native/afterlife
+   build/native/eternalslumber
    ```
 
 The fetch step downloads 167 MB once and puts the game files in `orig/`,
@@ -108,7 +108,7 @@ not installed).
 ```sh
 cmake --preset native
 cmake --build --preset native
-build/native/afterlife orig/
+build/native/eternalslumber orig/
 ```
 
 There's also a `debug` preset with ASan/UBSan.
@@ -123,26 +123,26 @@ looks small.
 **Windows**: in [MSYS2](https://www.msys2.org/)'s CLANG64 shell,
 `pacman -S mingw-w64-clang-x86_64-clang mingw-w64-clang-x86_64-cmake mingw-w64-clang-x86_64-ninja git`,
 then the same commands; the build fetches SDL3 and links it in, so
-`build/native/afterlife.exe` runs on its own. Cross-building from Linux with
+`build/native/eternalslumber.exe` runs on its own. Cross-building from Linux with
 [llvm-mingw](https://github.com/mstorsjo/llvm-mingw) works too, and `ctest`
 runs the tests under Wine with `-DCMAKE_CROSSCOMPILING_EMULATOR=wine`.
 
-`-DAFTERLIFE_STATIC_SDL=ON` fetches SDL3 and links it in even when one is
+`-DETERNALSLUMBER_STATIC_SDL=ON` fetches SDL3 and links it in even when one is
 installed (the release packages are built that way).
 
 **WebAssembly** (Emscripten, [docs/web.md](docs/web.md)):
 
 ```sh
-emcmake cmake --preset wasm -DAFTERLIFE_WASM_DATA=$PWD/orig
+emcmake cmake --preset wasm -DETERNALSLUMBER_WASM_DATA=$PWD/orig
 cmake --build --preset wasm
-cd build/wasm && python3 -m http.server 8000   # http://localhost:8000/afterlife.html
+cd build/wasm && python3 -m http.server 8000   # http://localhost:8000/eternalslumber.html
 ```
 
-The same build without data is published at <https://doridian.github.io/Afterlife/>:
+The same build without data is published at <https://doridian.github.io/EternalSlumber/>:
 the page asks for the CD image, which is on [archive.org](https://archive.org/details/AfterlifeUSA).
 
-`AFTERLIFE_WASM_DATA` builds the game files the port needs into
-`afterlife.data` (about 150 MB with the CD's `ALIFE.INI`). Don't publish such
+`ETERNALSLUMBER_WASM_DATA` builds the game files the port needs into
+`eternalslumber.data` (about 150 MB with the CD's `ALIFE.INI`). Don't publish such
 a build. Without it the page asks for the files once and keeps them in the
 browser. Saves and the port settings are kept in the browser too
 (IndexedDB). Dropping a `.alf` or `.asc` onto the page loads it, and
@@ -158,7 +158,7 @@ the tag's release.
 ## Running
 
 ```
-afterlife [DATA_DIR] [FILE.INI] [SAVE.ALF|SCENARIO.ASC] [options]
+eternalslumber [DATA_DIR] [FILE.INI] [SAVE.ALF|SCENARIO.ASC] [options]
 ```
 
 The port opens in a resizable window that remembers its size and position.
@@ -183,20 +183,22 @@ Options...** (or `--no-enhancements`) turns them off, and the port then
 behaves like the original, bugs included.
 
 The port keeps its own settings in `ALIFEPORT.INI` in the SDL preferences
-folder (`~/.local/share/Afterlife/Afterlife/` on Linux,
-`%APPDATA%\Afterlife\Afterlife\` on Windows,
-`~/Library/Application Support/Afterlife/Afterlife/` on macOS, IndexedDB in
-the browser), so the original's `ALIFE.INI` stays untouched.
+folder (`~/.local/share/EternalSlumber/EternalSlumber/` on Linux,
+`%APPDATA%\EternalSlumber\EternalSlumber\` on Windows,
+`~/Library/Application Support/EternalSlumber/EternalSlumber/` on macOS, IndexedDB in
+the browser), so the original's `ALIFE.INI` stays untouched. The folder of
+the port's earlier name (`Afterlife/Afterlife/`) moves there on the first
+start.
 
 ## Tests
 
 ```sh
-cmake --preset native -DAFTERLIFE_DATA=$PWD/orig
+cmake --preset native -DETERNALSLUMBER_DATA=$PWD/orig
 cmake --build --preset native
 ctest --test-dir build/native
 ```
 
-Without `AFTERLIFE_DATA`, only the tests that need no game data run.
+Without `ETERNALSLUMBER_DATA`, only the tests that need no game data run.
 
 `tools/emu/` runs the original `ALIFE.EXE`'s functions in a Unicorn emulator
 side by side with the port, on real saves, and compares state and RNG. See
@@ -226,7 +228,7 @@ side by side with the port, on real saves, and compares state and RNG. See
 
 ## Legal
 
-Afterlife is © LucasArts Entertainment Company. This project is not affiliated
+Afterlife is © LucasArts Entertainment Company. EternalSlumber is an unofficial port of it. This project is not affiliated
 with or endorsed by LucasArts or Disney. It's intended for owners of the
 original game, for preservation and interoperability.
 

@@ -34,7 +34,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from pe import PE  # noqa: E402
 
 REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-ORIG = os.environ.get('AFTERLIFE_ORIG', os.path.join(REPO, 'orig'))
+ORIG = os.environ.get('ETERNALSLUMBER_ORIG', os.path.join(REPO, 'orig'))
 
 # sha256 of the retail ALIFE.EXE (docs/binaries.md)
 ALIFE_SHA256 = '6f034f66c28c06f66e553baee90c9d5d91a98de54399309457b65e05df9e0842'
@@ -99,7 +99,7 @@ class Emu:
         exe = exe or os.path.join(ORIG, 'ALIFE.EXE')
         if not os.path.exists(exe):
             raise EmuError('%s not found: extract your CD into orig/ (tools/extract_cd.py) '
-                           'or set AFTERLIFE_ORIG' % exe)
+                           'or set ETERNALSLUMBER_ORIG' % exe)
         self.pe = pe = PE(exe)
         if check_hash:
             import hashlib

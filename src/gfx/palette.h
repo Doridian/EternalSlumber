@@ -12,8 +12,8 @@
  * Palette buffers passed around by the game are 256 four-byte entries
  * R, G, B, x (x is ignored on input).
  */
-#ifndef AFTERLIFE_GFX_PALETTE_H
-#define AFTERLIFE_GFX_PALETTE_H
+#ifndef ETERNALSLUMBER_GFX_PALETTE_H
+#define ETERNALSLUMBER_GFX_PALETTE_H
 
 #include <stdbool.h>
 #include <stddef.h>

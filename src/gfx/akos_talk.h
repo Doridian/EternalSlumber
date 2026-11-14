@@ -8,8 +8,8 @@
  * Talker n draws and animates AKOS actor n. The original keeps talker
  * records at 0x54f158 + n * 0x68 (n = 0..3, 0 unused).
  */
-#ifndef AFTERLIFE_GFX_AKOS_TALK_H
-#define AFTERLIFE_GFX_AKOS_TALK_H
+#ifndef ETERNALSLUMBER_GFX_AKOS_TALK_H
+#define ETERNALSLUMBER_GFX_AKOS_TALK_H
 
 #include <stdint.h>
 

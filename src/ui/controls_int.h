@@ -2,8 +2,8 @@
  * State shared between the controls' source files (port-only header; in
  * the original these are globals of the one controls module).
  */
-#ifndef AFTERLIFE_UI_CONTROLS_INT_H
-#define AFTERLIFE_UI_CONTROLS_INT_H
+#ifndef ETERNALSLUMBER_UI_CONTROLS_INT_H
+#define ETERNALSLUMBER_UI_CONTROLS_INT_H
 
 #include <stdbool.h>
 #include <stdint.h>

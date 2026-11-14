@@ -9,8 +9,8 @@
  * All codecs are LZSS (Okumura-style, 4 KiB window) plus an optional
  * byte-delta and 12-bit sample reordering stage, made for iMUSE audio.
  */
-#ifndef AFTERLIFE_COMPBUN_CODEC_H
-#define AFTERLIFE_COMPBUN_CODEC_H
+#ifndef ETERNALSLUMBER_COMPBUN_CODEC_H
+#define ETERNALSLUMBER_COMPBUN_CODEC_H
 
 #include <stddef.h>
 #include <stdint.h>

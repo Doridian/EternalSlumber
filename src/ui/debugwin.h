@@ -24,8 +24,8 @@
  * port-only command-line option `--debug-window` (shell.c, once a game
  * is running; see docs/ui.md).
  */
-#ifndef AFTERLIFE_UI_DEBUGWIN_H
-#define AFTERLIFE_UI_DEBUGWIN_H
+#ifndef ETERNALSLUMBER_UI_DEBUGWIN_H
+#define ETERNALSLUMBER_UI_DEBUGWIN_H
 
 #include <stdbool.h>
 #include <stdint.h>

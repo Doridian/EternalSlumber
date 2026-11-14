@@ -13,8 +13,8 @@
  * big-endian, everything inside the chunks is little-endian, and AKSQ
  * opcodes are read as big-endian 16-bit words.
  */
-#ifndef AFTERLIFE_FORMATS_AKOS_H
-#define AFTERLIFE_FORMATS_AKOS_H
+#ifndef ETERNALSLUMBER_FORMATS_AKOS_H
+#define ETERNALSLUMBER_FORMATS_AKOS_H
 
 #include <stddef.h>
 #include <stdint.h>

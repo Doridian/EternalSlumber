@@ -9,8 +9,8 @@
  * (0x5247a8, 0x30 bytes each in the original; free list 0x53516c). When the
  * pool runs dry, the original silently drops pieces, and so does the port.
  */
-#ifndef AFTERLIFE_UI_REGION_H
-#define AFTERLIFE_UI_REGION_H
+#ifndef ETERNALSLUMBER_UI_REGION_H
+#define ETERNALSLUMBER_UI_REGION_H
 
 #include <stdbool.h>
 

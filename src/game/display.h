@@ -16,8 +16,8 @@
  * re-creates that window and broadcasts WM_MSG_SCREEN_RESIZED, which no
  * window procedure of ALIFE.EXE handles.
  */
-#ifndef AFTERLIFE_GAME_DISPLAY_H
-#define AFTERLIFE_GAME_DISPLAY_H
+#ifndef ETERNALSLUMBER_GAME_DISPLAY_H
+#define ETERNALSLUMBER_GAME_DISPLAY_H
 
 #include <stdbool.h>
 

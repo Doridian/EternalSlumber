@@ -3,15 +3,15 @@
 <plist version="1.0">
 <dict>
     <key>CFBundleName</key>
-    <string>Afterlife</string>
+    <string>EternalSlumber</string>
     <key>CFBundleDisplayName</key>
-    <string>Afterlife</string>
+    <string>EternalSlumber</string>
     <key>CFBundleIdentifier</key>
-    <string>io.github.doridian.afterlife</string>
+    <string>io.github.doridian.eternalslumber</string>
     <key>CFBundleExecutable</key>
-    <string>afterlife</string>
+    <string>eternalslumber</string>
     <key>CFBundleIconFile</key>
-    <string>afterlife</string>
+    <string>eternalslumber</string>
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>CFBundleShortVersionString</key>

@@ -1,7 +1,7 @@
 <!-- Watcom C 10.x default register calling convention (#pragma aux __watcall).
      Args: EAX, EDX, EBX, ECX, then stack (callee pops). Return: EAX / EDX:EAX / ST0.
      The callee preserves every register except the return registers.
-     Installed into the program as a compiler-spec extension by AfterlifeSetup.java. -->
+     Installed into the program as a compiler-spec extension by EternalSlumberSetup.java. -->
 <prototype name="__watcall" extrapop="unknown" stackshift="4">
   <input>
     <pentry minsize="1" maxsize="4"><register name="EAX"/></pentry>

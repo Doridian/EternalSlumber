@@ -133,7 +133,7 @@ bool port_settings_save(const char *path, const PortSettings *s)
     FILE *f = path && path[0] ? fopen(path, "w") : NULL;
     if (!f)
         return false;
-    fprintf(f, "; Afterlife port settings (the original game never reads this file)\n"
+    fprintf(f, "; EternalSlumber settings (the original Afterlife never reads this file)\n"
                "[Port]\n"
                "; 1: fix bugs of the original and allow the extras below; 0: behave like the original\n"
                "Enhancements = %d\n"
@@ -167,7 +167,7 @@ const char *port_settings_path(void)
 
 void enhance_init_env(void)
 {
-    const char *e = SDL_getenv("AFTERLIFE_ENHANCEMENTS");
+    const char *e = SDL_getenv("ETERNALSLUMBER_ENHANCEMENTS");
     bool on;
     if (e && parse_bool(e, &on)) {
         g_port_settings.enhancements = on;

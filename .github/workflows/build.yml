@@ -81,23 +81,23 @@ jobs:
 
       - uses: actions/upload-artifact@v7
         with:
-          name: afterlife-wasm
+          name: eternalslumber-wasm
           path: |
-            build/wasm/afterlife.html
-            build/wasm/afterlife.js
-            build/wasm/afterlife.wasm
+            build/wasm/eternalslumber.html
+            build/wasm/eternalslumber.js
+            build/wasm/eternalslumber.wasm
 
       - name: Package (the page, for the release)
         run: |
-          d=afterlife-web
+          d=eternalslumber-web
           mkdir $d
-          cp web/index.html build/wasm/afterlife.html build/wasm/afterlife.js build/wasm/afterlife.wasm LICENSE $d/
+          cp web/index.html build/wasm/eternalslumber.html build/wasm/eternalslumber.js build/wasm/eternalslumber.wasm LICENSE $d/
           zip -r $d.zip $d
 
       - uses: actions/upload-artifact@v7
         with:
-          name: afterlife-web
-          path: afterlife-web.zip
+          name: eternalslumber-web
+          path: eternalslumber-web.zip
 
   windows:
     runs-on: windows-latest
@@ -110,7 +110,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
-      # CLANG64 (UCRT); no SDL3 package: AFTERLIFE_STATIC_SDL builds it in
+      # CLANG64 (UCRT); no SDL3 package: ETERNALSLUMBER_STATIC_SDL builds it in
       - uses: msys2/setup-msys2@v2
         with:
           msystem: CLANG64
@@ -123,7 +123,7 @@ jobs:
             zip
 
       - name: Configure
-        run: cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DAFTERLIFE_STATIC_SDL=ON
+        run: cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DETERNALSLUMBER_STATIC_SDL=ON
 
       - name: Build
         run: |
@@ -136,10 +136,10 @@ jobs:
       - name: Package
         run: |
           # one file: SDL3 and the runtime are linked in, only Windows' DLLs are needed
-          cp build/afterlife.exe afterlife-windows-x86_64.exe
-          if ldd afterlife-windows-x86_64.exe | grep -i /clang64/; then exit 1; fi
+          cp build/eternalslumber.exe eternalslumber-windows-x86_64.exe
+          if ldd eternalslumber-windows-x86_64.exe | grep -i /clang64/; then exit 1; fi
           # the licenses, for the release (the AppImage and the app carry theirs)
-          d=afterlife-licenses
+          d=eternalslumber-licenses
           mkdir $d
           cp LICENSE $d/
           cp build/_deps/sdl3-src/LICENSE.txt $d/SDL3-LICENSE.txt
@@ -147,13 +147,13 @@ jobs:
 
       - uses: actions/upload-artifact@v7
         with:
-          name: afterlife-windows-x86_64
-          path: afterlife-windows-x86_64.exe
+          name: eternalslumber-windows-x86_64
+          path: eternalslumber-windows-x86_64.exe
 
       - uses: actions/upload-artifact@v7
         with:
-          name: afterlife-licenses
-          path: afterlife-licenses.zip
+          name: eternalslumber-licenses
+          path: eternalslumber-licenses.zip
 
   appimage:
     strategy:
@@ -188,84 +188,84 @@ jobs:
           echo "$HOME/.local/bin" >> $GITHUB_PATH
 
       - name: Configure
-        run: cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DAFTERLIFE_STATIC_SDL=ON
+        run: cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DETERNALSLUMBER_STATIC_SDL=ON
 
       - name: Build
-        run: cmake --build build --target afterlife
+        run: cmake --build build --target eternalslumber
 
       - name: Package (AppImage)
         timeout-minutes: 10
         run: |
-          out=afterlife-${{ matrix.arch }}.AppImage
+          out=eternalslumber-${{ matrix.arch }}.AppImage
           curl -sSLfo linuxdeploy https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-${{ matrix.arch }}.AppImage
           chmod +x linuxdeploy
-          doc=AppDir/usr/share/doc/afterlife
+          doc=AppDir/usr/share/doc/eternalslumber
           mkdir -p $doc
           cp LICENSE $doc/
           cp build/_deps/sdl3-src/LICENSE.txt $doc/SDL3-LICENSE.txt
-          cp res/icon.png afterlife.png
-          LDAI_OUTPUT=$out ./linuxdeploy --appdir AppDir -e build/afterlife \
-              -d res/afterlife.desktop -i afterlife.png --output appimage
+          cp res/icon.png eternalslumber.png
+          LDAI_OUTPUT=$out ./linuxdeploy --appdir AppDir -e build/eternalslumber \
+              -d res/eternalslumber.desktop -i eternalslumber.png --output appimage
           # (it starts, and without game data says so)
           { SDL_VIDEO_DRIVER=offscreen SDL_AUDIO_DRIVER=dummy ./$out --quit 2>&1 || true; } | grep "RcInitialize"
 
       - uses: actions/upload-artifact@v7
         with:
-          name: afterlife-${{ matrix.arch }}.AppImage
-          path: afterlife-${{ matrix.arch }}.AppImage
+          name: eternalslumber-${{ matrix.arch }}.AppImage
+          path: eternalslumber-${{ matrix.arch }}.AppImage
 
   macos-app:
     runs-on: macos-26
     steps:
       - uses: actions/checkout@v7
 
-      # (no Homebrew SDL3: AFTERLIFE_STATIC_SDL builds it in, for both architectures)
+      # (no Homebrew SDL3: ETERNALSLUMBER_STATIC_SDL builds it in, for both architectures)
       - name: Install dependencies
         run: brew install ninja
 
       - name: Configure
         run: |
-          cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DAFTERLIFE_STATIC_SDL=ON \
+          cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DETERNALSLUMBER_STATIC_SDL=ON \
               "-DCMAKE_OSX_ARCHITECTURES=arm64;x86_64" -DCMAKE_OSX_DEPLOYMENT_TARGET=11.0
 
       - name: Build
-        run: cmake --build build --target afterlife
+        run: cmake --build build --target eternalslumber
 
       - name: Package (app in a dmg)
         timeout-minutes: 10
         run: |
-          app=dmg/Afterlife.app
+          app=dmg/EternalSlumber.app
           c=$app/Contents
           mkdir -p $c/MacOS $c/Resources/licenses
-          cp build/afterlife $c/MacOS/
+          cp build/eternalslumber $c/MacOS/
           v=0.0.0
           case "$GITHUB_REF" in refs/tags/v*) v=${GITHUB_REF_NAME#v} ;; esac
           sed "s/@VERSION@/$v/" res/Info.plist > $c/Info.plist
           # the icon, from res/icon.png (256 px)
-          mkdir afterlife.iconset
+          mkdir eternalslumber.iconset
           for n in 16 32 128 256; do
-              sips -z $n $n res/icon.png --out afterlife.iconset/icon_${n}x${n}.png > /dev/null
+              sips -z $n $n res/icon.png --out eternalslumber.iconset/icon_${n}x${n}.png > /dev/null
               if [ $n -le 128 ]; then
-                  sips -z $((n * 2)) $((n * 2)) res/icon.png --out afterlife.iconset/icon_${n}x${n}@2x.png > /dev/null
+                  sips -z $((n * 2)) $((n * 2)) res/icon.png --out eternalslumber.iconset/icon_${n}x${n}@2x.png > /dev/null
               fi
           done
-          iconutil -c icns afterlife.iconset -o $c/Resources/afterlife.icns
+          iconutil -c icns eternalslumber.iconset -o $c/Resources/eternalslumber.icns
           cp LICENSE $c/Resources/licenses/
           cp build/_deps/sdl3-src/LICENSE.txt $c/Resources/licenses/SDL3-LICENSE.txt
           # one file inside: nothing but the system's libraries
-          otool -L $c/MacOS/afterlife
-          if otool -L $c/MacOS/afterlife | grep -E '/opt/homebrew|/usr/local|@rpath'; then exit 1; fi
-          lipo -archs $c/MacOS/afterlife
+          otool -L $c/MacOS/eternalslumber
+          if otool -L $c/MacOS/eternalslumber | grep -E '/opt/homebrew|/usr/local|@rpath'; then exit 1; fi
+          lipo -archs $c/MacOS/eternalslumber
           codesign --force --deep -s - $app
           # (it starts, and without game data says so)
-          { SDL_VIDEO_DRIVER=dummy SDL_AUDIO_DRIVER=dummy $c/MacOS/afterlife --quit 2>&1 || true; } | grep "RcInitialize"
+          { SDL_VIDEO_DRIVER=dummy SDL_AUDIO_DRIVER=dummy $c/MacOS/eternalslumber --quit 2>&1 || true; } | grep "RcInitialize"
           ln -s /Applications dmg/Applications
-          hdiutil create -volname Afterlife -srcfolder dmg -ov -format UDZO afterlife-macos.dmg
+          hdiutil create -volname EternalSlumber -srcfolder dmg -ov -format UDZO eternalslumber-macos.dmg
 
       - uses: actions/upload-artifact@v7
         with:
-          name: afterlife-macos
-          path: afterlife-macos.dmg
+          name: eternalslumber-macos
+          path: eternalslumber-macos.dmg
 
   release:
     if: startsWith(github.ref, 'refs/tags/v')
@@ -285,8 +285,8 @@ jobs:
           GH_REPO: ${{ github.repository }}
           TAG: ${{ github.ref_name }}
         run: |
-          # (the page goes as afterlife-web.zip, not as the wasm artifact's loose files)
-          rm -f dist/afterlife.html dist/afterlife.js dist/afterlife.wasm
+          # (the page goes as eternalslumber-web.zip, not as the wasm artifact's loose files)
+          rm -f dist/eternalslumber.html dist/eternalslumber.js dist/eternalslumber.wasm
           ls -l dist
           gh release view "$TAG" > /dev/null 2>&1 || gh release create "$TAG" --verify-tag --generate-notes --title "$TAG"
           gh release upload "$TAG" dist/* --clobber

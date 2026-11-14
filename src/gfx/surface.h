@@ -15,8 +15,8 @@
  *
  * See docs/rendering.md.
  */
-#ifndef AFTERLIFE_GFX_SURFACE_H
-#define AFTERLIFE_GFX_SURFACE_H
+#ifndef ETERNALSLUMBER_GFX_SURFACE_H
+#define ETERNALSLUMBER_GFX_SURFACE_H
 
 #include <stdbool.h>
 #include <stdint.h>

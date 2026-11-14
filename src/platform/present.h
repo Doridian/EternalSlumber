@@ -10,8 +10,8 @@
  * the presentation scales it back up by the largest whole factor that
  * fits (crisp nearest-neighbour pixels).
  */
-#ifndef AFTERLIFE_PLATFORM_PRESENT_H
-#define AFTERLIFE_PLATFORM_PRESENT_H
+#ifndef ETERNALSLUMBER_PLATFORM_PRESENT_H
+#define ETERNALSLUMBER_PLATFORM_PRESENT_H
 
 /* The smallest framebuffer the game is laid out for (the title's art). */
 #define PRESENT_MIN_W 640

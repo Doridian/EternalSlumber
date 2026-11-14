@@ -21,9 +21,9 @@ simulation code), it can be added per-function without changing the layout.
 Needs Ghidra 12 at `/opt/ghidra` (or set `GHIDRA_INSTALL_DIR`) and Java 21.
 
 1. `tools/extract_cd.py <your .cue> orig/`
-2. `tools/ghidra/setup.sh` imports `orig/ALIFE.EXE` into `ghidra/Afterlife.gpr`
+2. `tools/ghidra/setup.sh` imports `orig/ALIFE.EXE` into `ghidra/EternalSlumber.gpr`
    (gitignored), auto-analyzes it (~1 min), creates functions for orphan code
-   (`AfterlifePost.java`) and applies `symbols/ALIFE.EXE.txt`. `--force` rebuilds
+   (`EternalSlumberPost.java`) and applies `symbols/ALIFE.EXE.txt`. `--force` rebuilds
    it from scratch.
 3. Query it with `tools/gh` (`tools/gh --help`):
 
@@ -48,10 +48,10 @@ Needs Ghidra 12 at `/opt/ghidra` (or set `GHIDRA_INSTALL_DIR`) and Java 21.
 `ALIFE.EXE` is MSVC-built, so Ghidra's default `__cdecl`/`__stdcall` handling is
 right. `ALIFEDOS.EXE` (Watcom, DOS/4GW LE) doesn't import with stock Ghidra:
 it loads only the 16-bit MZ stub. It needs an LE/LX loader extension. Once it
-imports, run `tools/ghidra/scripts/AfterlifeSetup.java` as a `-preScript`
+imports, run `tools/ghidra/scripts/EternalSlumberSetup.java` as a `-preScript`
 before analysis to install the `__watcall` prototype
 (`tools/ghidra/watcall.xml`) as a compiler-spec extension and make it the
-default evaluation model. `AfterlifePost.java` then marks internal functions
+default evaluation model. `EternalSlumberPost.java` then marks internal functions
 `__watcall`.
 
 The Ghidra project is binary and contains copyrighted code, so it stays out of

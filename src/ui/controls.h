@@ -19,8 +19,8 @@
  *                find-control-by-id (0x4c1064)
  * The menus (0x4c6bf9-0x4c97de) are in ui/menu.h.
  */
-#ifndef AFTERLIFE_UI_CONTROLS_H
-#define AFTERLIFE_UI_CONTROLS_H
+#ifndef ETERNALSLUMBER_UI_CONTROLS_H
+#define ETERNALSLUMBER_UI_CONTROLS_H
 
 #include <stdbool.h>
 #include <stdint.h>

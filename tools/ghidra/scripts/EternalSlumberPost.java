@@ -4,10 +4,10 @@
 //     Ghidra disassembled but never turned into functions, and unreferenced
 //     functions sitting undefined right after a RET.
 //  2. Only for programs with the __watcall extension (ALIFEDOS.EXE, see
-//     AfterlifeSetup.java): give every internal (non-thunk, non-external) function whose calling
+//     EternalSlumberSetup.java): give every internal (non-thunk, non-external) function whose calling
 //     convention is still unknown/default the __watcall convention. Imports and
 //     thunks to imports keep their Win32 __stdcall prototypes.
-//@category Afterlife
+//@category EternalSlumber
 
 import ghidra.app.script.GhidraScript;
 import ghidra.program.model.address.Address;
@@ -16,7 +16,7 @@ import ghidra.program.model.listing.Data;
 import ghidra.program.model.mem.MemoryBlock;
 import ghidra.program.model.symbol.SourceType;
 
-public class AfterlifePost extends GhidraScript {
+public class EternalSlumberPost extends GhidraScript {
 	@Override
 	protected void run() throws Exception {
 		int created = 0;

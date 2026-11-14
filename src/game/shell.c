@@ -1765,7 +1765,7 @@ int game_main_init(int argc, char **argv)
     g_main_window = wm_create_toplevel(&full, title_wnd_proc, WM_F_MENUBAR | WM_F_VSCROLL | WM_F_HSCROLL | WM_F_CLIPMOUSE);
     if (!g_main_window)
         return -1;
-    wm_set_title(g_main_window, "Afterlife");
+    wm_set_title(g_main_window, "EternalSlumber");
     install_display_hooks(); /* port: the port window follows the window's size */
     if (g_main_window->menubar)
         wm_show(g_main_window->menubar, false);

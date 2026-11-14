@@ -15,8 +15,8 @@
  * or from views_refresh_all (0x408c4d); sim_update calls it at the end of
  * the year. Context and hooks: ui/views.h.
  */
-#ifndef AFTERLIFE_UI_MAPVIEW_H
-#define AFTERLIFE_UI_MAPVIEW_H
+#ifndef ETERNALSLUMBER_UI_MAPVIEW_H
+#define ETERNALSLUMBER_UI_MAPVIEW_H
 
 #include <stdbool.h>
 

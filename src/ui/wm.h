@@ -23,8 +23,8 @@
  *
  * See docs/ui.md.
  */
-#ifndef AFTERLIFE_UI_WM_H
-#define AFTERLIFE_UI_WM_H
+#ifndef ETERNALSLUMBER_UI_WM_H
+#define ETERNALSLUMBER_UI_WM_H
 
 #include <stdbool.h>
 #include <stdint.h>

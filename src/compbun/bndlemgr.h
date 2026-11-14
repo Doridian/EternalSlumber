@@ -8,8 +8,8 @@
  * resource bundles are read by the game's own resource code instead
  * (src/game/resource.c). See docs/compbun.md.
  */
-#ifndef AFTERLIFE_COMPBUN_BNDLEMGR_H
-#define AFTERLIFE_COMPBUN_BNDLEMGR_H
+#ifndef ETERNALSLUMBER_COMPBUN_BNDLEMGR_H
+#define ETERNALSLUMBER_COMPBUN_BNDLEMGR_H
 
 #include "compbun/cbres.h"
 

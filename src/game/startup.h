@@ -14,8 +14,8 @@
  *   game_main(argc, argv) (0x401000) the game, returns when the player quits
  *   PostQuitMessage, sys_shutdown
  */
-#ifndef AFTERLIFE_GAME_STARTUP_H
-#define AFTERLIFE_GAME_STARTUP_H
+#ifndef ETERNALSLUMBER_GAME_STARTUP_H
+#define ETERNALSLUMBER_GAME_STARTUP_H
 
 #include <stdbool.h>
 

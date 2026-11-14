@@ -10,7 +10,7 @@ It is **on by default** (opt-out): with no settings file, or one without an
 `Enhancements` key, the game runs enhanced. Turned off, the port behaves
 like the original, bugs included. The tests are the exception: they don't
 load the settings, so `g_enhancements` stays off unless
-`AFTERLIFE_ENHANCEMENTS=1` (see *Tests*), and the differential tests
+`ETERNALSLUMBER_ENHANCEMENTS=1` (see *Tests*), and the differential tests
 compare against the original's behaviour.
 
 The resizable port window, its fullscreen toggle (Alt+Enter, F11) and its
@@ -25,9 +25,9 @@ always on (listed below under *Always on*).
 
 | Where | How |
 |---|---|
-| Settings file | `ALIFEPORT.INI` in the user's settings folder (`plat_pref_path`, `~/.local/share/Afterlife/Afterlife/` on Linux), or the file `--port-ini=FILE` names. A `[Port]` section with `Enhancements = 0/1` and `UI scale = 0..4` (0 = automatic). The same file keeps the port window's state (`Window size`, `Window position`, `Maximized`, `Fullscreen`, see [rendering.md](rendering.md#port-window)), which isn't an enhancement. ALIFE.INI is left alone: the original reads it, and it has no sections. |
+| Settings file | `ALIFEPORT.INI` in the user's settings folder (`plat_pref_path`, `~/.local/share/EternalSlumber/EternalSlumber/` on Linux), or the file `--port-ini=FILE` names. A `[Port]` section with `Enhancements = 0/1` and `UI scale = 0..4` (0 = automatic). The same file keeps the port window's state (`Window size`, `Window position`, `Maximized`, `Fullscreen`, see [rendering.md](rendering.md#port-window)), which isn't an enhancement. ALIFE.INI is left alone: the original reads it, and it has no sections. |
 | Command line | `--enhancements`, `--no-enhancements`, `--ui-scale=N`, `--port-ini=FILE`. They override the file for this run and aren't saved. |
-| Environment | `AFTERLIFE_ENHANCEMENTS=1` / `0` (between the file and the command line). The tests use it (`enhance_init_env`). |
+| Environment | `ETERNALSLUMBER_ENHANCEMENTS=1` / `0` (between the file and the command line). The tests use it (`enhance_init_env`). |
 | In game | Global menu > **Port Options...** (port-only item, the Port Options window below). Every change applies at once; OK saves it to the settings file, Cancel puts the old settings back. |
 
 Precedence: command line > environment > file > default (on).
@@ -119,6 +119,6 @@ faithfully. These guards stay on regardless of the switch (marked
   window through injected clicks (toggle, slider, OK saves, Cancel
   restores).
 - `badthings_test_enh` and `tutorial_test_enh`: the two tests that cover
-  gated code, run again with `AFTERLIFE_ENHANCEMENTS=1` (the plain runs
+  gated code, run again with `ETERNALSLUMBER_ENHANCEMENTS=1` (the plain runs
   keep the original's behaviour, since the tests don't load the settings
   and `g_enhancements` starts off).

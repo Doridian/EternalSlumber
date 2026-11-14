@@ -15,8 +15,8 @@
  * original passed them around as 32-bit ints (FILE pointers at the bottom,
  * small indices higher up). Here they are intptr_t so a pointer still fits.
  */
-#ifndef AFTERLIFE_COMPBUN_CBRES_H
-#define AFTERLIFE_COMPBUN_CBRES_H
+#ifndef ETERNALSLUMBER_COMPBUN_CBRES_H
+#define ETERNALSLUMBER_COMPBUN_CBRES_H
 
 #include <stdint.h>
 

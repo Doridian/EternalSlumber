@@ -1,8 +1,8 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 """The port (src/) as a shared library, through ctypes.
 
-Port() builds the CMake target afterlife_port in build/emu (configured on
-first use, Debug so asserts are on) and loads libafterlife_port.so. Every
+Port() builds the CMake target eternalslumber_port in build/emu (configured on
+first use, Debug so asserts are on) and loads libeternalslumber_port.so. Every
 non-static C function of the port is reachable as port.lib.<name>; the
 helpers below cover state access (tools/emu/port_shim.c).
 
@@ -16,13 +16,13 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(os.path.dirname(HERE))
-BUILD = os.environ.get('AFTERLIFE_EMU_BUILD', os.path.join(REPO, 'build', 'emu'))
+BUILD = os.environ.get('ETERNALSLUMBER_EMU_BUILD', os.path.join(REPO, 'build', 'emu'))
 
 _lib_cache = {}
 
 
 def build(build_dir=BUILD, quiet=True):
-    """Configure (once) and build afterlife_port; returns the .so path.
+    """Configure (once) and build eternalslumber_port; returns the .so path.
     Serialized with flock so concurrent agents don't trip over each other."""
     os.makedirs(build_dir, exist_ok=True)
     with open(os.path.join(build_dir, '.emu-build.lock'), 'w') as lk:
@@ -33,23 +33,23 @@ def build(build_dir=BUILD, quiet=True):
                                stdout=out, stderr=subprocess.STDOUT, text=True)
             if r.returncode:
                 sys.exit('cmake configure failed:\n%s' % (r.stdout or ''))
-        r = subprocess.run(['cmake', '--build', build_dir, '--target', 'afterlife_port',
+        r = subprocess.run(['cmake', '--build', build_dir, '--target', 'eternalslumber_port',
                             '-j%d' % (os.cpu_count() or 4)], stdout=out, stderr=subprocess.STDOUT, text=True)
-        so = os.path.join(build_dir, 'libafterlife_port.so')
+        so = os.path.join(build_dir, 'libeternalslumber_port.so')
         if r.returncode:
             tail = '\n'.join((r.stdout or '').splitlines()[-15:])
-            if not os.path.exists(so) or os.environ.get('AFTERLIFE_EMU_STRICT'):
-                sys.exit('building afterlife_port failed:\n%s' % tail)
-            print('WARNING: building afterlife_port failed, using the STALE %s\n%s' % (so, tail),
+            if not os.path.exists(so) or os.environ.get('ETERNALSLUMBER_EMU_STRICT'):
+                sys.exit('building eternalslumber_port failed:\n%s' % tail)
+            print('WARNING: building eternalslumber_port failed, using the STALE %s\n%s' % (so, tail),
                   file=sys.stderr)
     return so
 
 
 class Port:
     def __init__(self, lib=None, rebuild=True):
-        lib = lib or os.environ.get('AFTERLIFE_PORT_LIB')
+        lib = lib or os.environ.get('ETERNALSLUMBER_PORT_LIB')
         if not lib:
-            lib = build() if rebuild else os.path.join(BUILD, 'libafterlife_port.so')
+            lib = build() if rebuild else os.path.join(BUILD, 'libeternalslumber_port.so')
         lib = os.path.abspath(lib)
         if lib not in _lib_cache:
             _lib_cache[lib] = ctypes.CDLL(lib)

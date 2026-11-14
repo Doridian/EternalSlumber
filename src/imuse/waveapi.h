@@ -1,8 +1,8 @@
 /*
  * Port-only controls of the output driver (src/imuse/waveapi.c).
  */
-#ifndef AFTERLIFE_IMUSE_WAVEAPI_H
-#define AFTERLIFE_IMUSE_WAVEAPI_H
+#ifndef ETERNALSLUMBER_IMUSE_WAVEAPI_H
+#define ETERNALSLUMBER_IMUSE_WAVEAPI_H
 
 #include <stdint.h>
 

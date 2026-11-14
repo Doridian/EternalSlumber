@@ -4,8 +4,8 @@
  * src/ui/ctrlpanel.c, src/ui/statusbar.c). Not for other modules: they use
  * game/shell.h.
  */
-#ifndef AFTERLIFE_GAME_SHELL_INT_H
-#define AFTERLIFE_GAME_SHELL_INT_H
+#ifndef ETERNALSLUMBER_GAME_SHELL_INT_H
+#define ETERNALSLUMBER_GAME_SHELL_INT_H
 
 #include <stdbool.h>
 #include <stdint.h>

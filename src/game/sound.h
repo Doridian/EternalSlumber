@@ -16,8 +16,8 @@
  *   -> snd_start_imuse; then sys_register_task(snd_shutdown, snd_suspend,
  *   snd_resume, snd_idle) with the functions below as bodies.
  */
-#ifndef AFTERLIFE_GAME_SOUND_H
-#define AFTERLIFE_GAME_SOUND_H
+#ifndef ETERNALSLUMBER_GAME_SOUND_H
+#define ETERNALSLUMBER_GAME_SOUND_H
 
 #include <stdint.h>
 

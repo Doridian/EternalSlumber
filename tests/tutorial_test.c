@@ -755,7 +755,7 @@ int main(int argc, char **argv)
         return 2;
     }
     g_out = argv[2];
-    enhance_init_env(); /* AFTERLIFE_ENHANCEMENTS=1: the enhanced behaviour */
+    enhance_init_env(); /* ETERNALSLUMBER_ENHANCEMENTS=1: the enhanced behaviour */
     printf("enhancements %s\n", g_enhancements ? "on" : "off");
     setvbuf(stdout, NULL, _IONBF, 0);
     crc_init();

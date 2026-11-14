@@ -15,8 +15,8 @@
  * back. Keys: Enter OK, Esc Cancel, E the toggle, Left / Right the slider.
  * See docs/enhancements.md.
  */
-#ifndef AFTERLIFE_UI_PORTOPTS_H
-#define AFTERLIFE_UI_PORTOPTS_H
+#ifndef ETERNALSLUMBER_UI_PORTOPTS_H
+#define ETERNALSLUMBER_UI_PORTOPTS_H
 
 #include <stdbool.h>
 

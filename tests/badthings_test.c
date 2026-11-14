@@ -545,7 +545,7 @@ int main(int argc, char **argv)
         fprintf(stderr, "usage: %s <data dir> <out dir | -> save.ASC ...\n", argv[0]);
         return 2;
     }
-    enhance_init_env(); /* AFTERLIFE_ENHANCEMENTS=1: the enhanced behaviour */
+    enhance_init_env(); /* ETERNALSLUMBER_ENHANCEMENTS=1: the enhanced behaviour */
     printf("enhancements %s\n", g_enhancements ? "on" : "off");
     plat_set_data_dir(argv[1]);
     g_out = strcmp(argv[2], "-") == 0 ? NULL : argv[2];

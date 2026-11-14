@@ -23,8 +23,8 @@
  * soultrack_hooks, g_build_hooks.soulview_reset / soulview_rotated.
  * Context and hooks (main window, centring the main view, help): ui/views.h.
  */
-#ifndef AFTERLIFE_UI_SOULVIEW_H
-#define AFTERLIFE_UI_SOULVIEW_H
+#ifndef ETERNALSLUMBER_UI_SOULVIEW_H
+#define ETERNALSLUMBER_UI_SOULVIEW_H
 
 #include <stdbool.h>
 #include <stddef.h>

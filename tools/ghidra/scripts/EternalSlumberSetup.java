@@ -2,7 +2,7 @@
 // extension and make it the prototype-evaluation model, so analysis treats
 // unknown internal functions as Watcom register-convention functions.
 // Run as -preScript right after import (see tools/ghidra/setup.sh).
-//@category Afterlife
+//@category EternalSlumber
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -12,7 +12,7 @@ import ghidra.framework.options.Options;
 import ghidra.program.database.ProgramCompilerSpec;
 import ghidra.program.database.SpecExtension;
 
-public class AfterlifeSetup extends GhidraScript {
+public class EternalSlumberSetup extends GhidraScript {
 	@Override
 	protected void run() throws Exception {
 		Path xml = getSourceFile().getParentFile().getParentFile().getFile(false).toPath()

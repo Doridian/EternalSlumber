@@ -24,8 +24,8 @@
  * cancelled or failed. Saving and loading go through the shell
  * (shell_save_game_to / shell_load_game_from).
  */
-#ifndef AFTERLIFE_UI_SLOTDLG_H
-#define AFTERLIFE_UI_SLOTDLG_H
+#ifndef ETERNALSLUMBER_UI_SLOTDLG_H
+#define ETERNALSLUMBER_UI_SLOTDLG_H
 
 #include <stdbool.h>
 #include <stddef.h>

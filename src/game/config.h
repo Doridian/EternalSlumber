@@ -5,8 +5,8 @@
  * functions are the INI-reading parts of those init functions, so the
  * subsystems can be ported separately. See docs/startup.md.
  */
-#ifndef AFTERLIFE_GAME_CONFIG_H
-#define AFTERLIFE_GAME_CONFIG_H
+#ifndef ETERNALSLUMBER_GAME_CONFIG_H
+#define ETERNALSLUMBER_GAME_CONFIG_H
 
 #include <stdbool.h>
 #include <stdint.h>

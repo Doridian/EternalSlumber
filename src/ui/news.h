@@ -18,8 +18,8 @@
  *     palette (resource 0x21).
  * news_init (0x478304) creates the window and registers the timeout task.
  */
-#ifndef AFTERLIFE_UI_NEWS_H
-#define AFTERLIFE_UI_NEWS_H
+#ifndef ETERNALSLUMBER_UI_NEWS_H
+#define ETERNALSLUMBER_UI_NEWS_H
 
 #include <stdbool.h>
 #include <stdint.h>

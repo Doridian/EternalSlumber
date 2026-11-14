@@ -3,8 +3,8 @@
  * Mapview internals that need the main map view (gfx/map_view.h): the
  * outline of the main view, in mapview_outline.c.
  */
-#ifndef AFTERLIFE_UI_MAPVIEW_INT_H
-#define AFTERLIFE_UI_MAPVIEW_INT_H
+#ifndef ETERNALSLUMBER_UI_MAPVIEW_INT_H
+#define ETERNALSLUMBER_UI_MAPVIEW_INT_H
 
 #include "gfx/surface.h"
 

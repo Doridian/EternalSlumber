@@ -8,8 +8,8 @@
  *
  * See docs/formats/akos.md for the format, the bytecode and the state.
  */
-#ifndef AFTERLIFE_GFX_AKOS_H
-#define AFTERLIFE_GFX_AKOS_H
+#ifndef ETERNALSLUMBER_GFX_AKOS_H
+#define ETERNALSLUMBER_GFX_AKOS_H
 
 #include <stdbool.h>
 #include <stddef.h>

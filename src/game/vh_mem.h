@@ -6,8 +6,8 @@
  * bookkeeping. Callers keep passing __FILE__/__LINE__ so the real thing can be
  * dropped in later without touching them.
  */
-#ifndef AFTERLIFE_GAME_VH_MEM_H
-#define AFTERLIFE_GAME_VH_MEM_H
+#ifndef ETERNALSLUMBER_GAME_VH_MEM_H
+#define ETERNALSLUMBER_GAME_VH_MEM_H
 
 #include <stdlib.h>
 

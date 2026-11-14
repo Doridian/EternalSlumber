@@ -7,8 +7,8 @@
  * palette indices. Drawing functions accept NULL for the screen (port-only;
  * the originals require a surface).
  */
-#ifndef AFTERLIFE_GFX_DRAW_H
-#define AFTERLIFE_GFX_DRAW_H
+#ifndef ETERNALSLUMBER_GFX_DRAW_H
+#define ETERNALSLUMBER_GFX_DRAW_H
 
 #include <stdbool.h>
 #include <stdint.h>

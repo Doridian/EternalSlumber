@@ -15,8 +15,8 @@
  * Anything else is passed through untouched. (No Afterlife resource starts
  * with 'COMP', so in practice every stream is passed through.)
  */
-#ifndef AFTERLIFE_COMPBUN_CMPRSMGR_H
-#define AFTERLIFE_COMPBUN_CMPRSMGR_H
+#ifndef ETERNALSLUMBER_COMPBUN_CMPRSMGR_H
+#define ETERNALSLUMBER_COMPBUN_CMPRSMGR_H
 
 #include <stdint.h>
 

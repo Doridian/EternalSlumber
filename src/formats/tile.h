@@ -4,8 +4,8 @@
  * accessors 0x4ef4fb-0x4ef729 and the strip decoder at the core of tile_draw
  * 0x4e6a6a). See docs/formats/tile.md.
  */
-#ifndef AFTERLIFE_TILE_H
-#define AFTERLIFE_TILE_H
+#ifndef ETERNALSLUMBER_TILE_H
+#define ETERNALSLUMBER_TILE_H
 
 #include <stddef.h>
 #include <stdint.h>

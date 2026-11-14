@@ -1,6 +1,6 @@
 # Publishes the WebAssembly build on GitHub Pages, without game data: the
 # page asks the player for their CD (an image from archive.org, or its files).
-# web/index.html is the front page, afterlife.html the game next to it.
+# web/index.html is the front page, eternalslumber.html the game next to it.
 name: pages
 
 on:
@@ -39,11 +39,11 @@ jobs:
 
       - name: Assemble the site
         run: |
-          # The site must never carry game data: no package from AFTERLIFE_WASM_DATA.
+          # The site must never carry game data: no package from ETERNALSLUMBER_WASM_DATA.
           if ls build/wasm/*.data >/dev/null 2>&1; then echo "game data in the build"; exit 1; fi
           mkdir _site
           cp web/index.html _site/
-          cp build/wasm/afterlife.html build/wasm/afterlife.js build/wasm/afterlife.wasm _site/
+          cp build/wasm/eternalslumber.html build/wasm/eternalslumber.js build/wasm/eternalslumber.wasm _site/
 
       - uses: actions/configure-pages@v6
 

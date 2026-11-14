@@ -3,8 +3,8 @@
  * Internal interface between the advisor window (src/ui/advisors.c) and
  * the advice texts (src/ui/advisors_text.c).
  */
-#ifndef AFTERLIFE_UI_ADVISORS_INT_H
-#define AFTERLIFE_UI_ADVISORS_INT_H
+#ifndef ETERNALSLUMBER_UI_ADVISORS_INT_H
+#define ETERNALSLUMBER_UI_ADVISORS_INT_H
 
 #include <stdbool.h>
 #include <stdint.h>

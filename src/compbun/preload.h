@@ -10,8 +10,8 @@
  * returns -1. The read helpers here are what the Compression Layer actually
  * uses to parse COMP headers.
  */
-#ifndef AFTERLIFE_COMPBUN_PRELOAD_H
-#define AFTERLIFE_COMPBUN_PRELOAD_H
+#ifndef ETERNALSLUMBER_COMPBUN_PRELOAD_H
+#define ETERNALSLUMBER_COMPBUN_PRELOAD_H
 
 #include <stdint.h>
 

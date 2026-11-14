@@ -22,8 +22,8 @@
  * Pop-ups are laid out and get their surface the first time they open
  * (menu_open_popup); items added later aren't laid out.
  */
-#ifndef AFTERLIFE_UI_MENU_H
-#define AFTERLIFE_UI_MENU_H
+#ifndef ETERNALSLUMBER_UI_MENU_H
+#define ETERNALSLUMBER_UI_MENU_H
 
 #include <stdbool.h>
 #include <stdint.h>

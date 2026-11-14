@@ -4,7 +4,7 @@
  * docs/startup.md): parse the command line, pick the INI file, run the
  * subsystem init sequence, run the game, shut down.
  *
- * Usage: afterlife [DATA_DIR] [FILE.INI] [SAVE.ALF|SCENARIO.ASC] [--quit]
+ * Usage: eternalslumber [DATA_DIR] [FILE.INI] [SAVE.ALF|SCENARIO.ASC] [--quit]
  *                  [--enhancements | --no-enhancements] [--ui-scale=N]
  *                  [--port-ini=FILE] [--window-size=WxH] [--fullscreen | --windowed]
  *                  [--window-test=DIR] [--debug-window]

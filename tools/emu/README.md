@@ -7,7 +7,7 @@ sides, give both the same RNG state, call the original and the port, then diff
 the whole game state.
 
 `ALIFE.EXE` and the saves are read from your `orig/` at runtime (or
-`$AFTERLIFE_ORIG`). Never commit them, or anything dumped from them.
+`$ETERNALSLUMBER_ORIG`). Never commit them, or anything dumped from them.
 
 ## Setup
 
@@ -17,13 +17,13 @@ python3 -m venv .venv && .venv/bin/pip install -r tools/emu/requirements.txt
 
 The only dependency is `unicorn`. Run the scripts with `.venv/bin/python`
 (gitignored).
-The port library (`libafterlife_port.so`,
-CMake target `afterlife_port`, not built by default) is configured and built
+The port library (`libeternalslumber_port.so`,
+CMake target `eternalslumber_port`, not built by default) is configured and built
 in `build/emu` (Debug, asserts on) the first time the harness runs, then
 rebuilt on every run. The build is serialized with flock. If the build fails
 (another agent's half-finished file, say), the harness warns and uses the
-stale library. Set `AFTERLIFE_EMU_STRICT=1` to fail instead, or
-`AFTERLIFE_PORT_LIB=path/to.so` to skip the build.
+stale library. Set `ETERNALSLUMBER_EMU_STRICT=1` to fail instead, or
+`ETERNALSLUMBER_PORT_LIB=path/to.so` to skip the build.
 
 ## What's checked
 
@@ -91,7 +91,7 @@ for save in SAVES:
   structs are read from emulator memory: `h.emu.cstr(ptr)`, `h.emu.u32(addr)`,
   `h.emu.read(addr, n)`, `h.emu.malloc(n)` for argument buffers.
 - **Static inline / unexported port functions** need a C wrapper. Put it in
-  `tools/emu/shims/<package>.c` (globbed into `afterlife_port`) and mark it
+  `tools/emu/shims/<package>.c` (globbed into `eternalslumber_port`) and mark it
   `__attribute__((visibility("default")))`. `port_shim.c` has the world.h
   ones.
 - **State the diff doesn't cover yet.** `h.diff()` compares the saved

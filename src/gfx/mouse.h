@@ -8,8 +8,8 @@
  * queues button transitions (32 entries) so clicks between polls aren't
  * lost. main_wnd_proc (0x4cb7ad) feeds it from WM_MOUSEMOVE / WM_xBUTTONxxx.
  */
-#ifndef AFTERLIFE_GFX_MOUSE_H
-#define AFTERLIFE_GFX_MOUSE_H
+#ifndef ETERNALSLUMBER_GFX_MOUSE_H
+#define ETERNALSLUMBER_GFX_MOUSE_H
 
 #include <stdbool.h>
 

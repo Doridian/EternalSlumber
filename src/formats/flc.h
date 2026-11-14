@@ -8,8 +8,8 @@
  * decoders write into a caller-supplied 8-bit buffer and a palette array, so
  * this doesn't depend on the video layer.
  */
-#ifndef AFTERLIFE_FLC_H
-#define AFTERLIFE_FLC_H
+#ifndef ETERNALSLUMBER_FLC_H
+#define ETERNALSLUMBER_FLC_H
 
 #include <stdbool.h>
 #include <stddef.h>

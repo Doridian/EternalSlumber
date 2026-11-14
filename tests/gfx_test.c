@@ -194,7 +194,7 @@ int main(int argc, char **argv)
     gfx_cursor_set(cur);
     if (builtin) {
         gfx_font_set_colors(0, 1, 2, col);
-        tw = gfx_font_draw_text(NULL, 30, 305, NULL, NULL, "Built-in font &Afterlife", 0);
+        tw = gfx_font_draw_text(NULL, 30, 305, NULL, NULL, "Built-in font &EternalSlumber", 0);
     }
     gfx_font_select(500);
     if (gfx_font_current() == 500) {

@@ -6,8 +6,8 @@
  * the next one picked when it ends. game_frame_update calls music_tick
  * every 8th 125 ms clock tick.
  */
-#ifndef AFTERLIFE_GAME_MUSIC_H
-#define AFTERLIFE_GAME_MUSIC_H
+#ifndef ETERNALSLUMBER_GAME_MUSIC_H
+#define ETERNALSLUMBER_GAME_MUSIC_H
 
 #include <stdint.h>
 

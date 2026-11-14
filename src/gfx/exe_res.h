@@ -5,8 +5,8 @@
  * EXE's texts and number tables are ordinary C data in the modules that use
  * them.
  */
-#ifndef AFTERLIFE_GFX_EXE_RES_H
-#define AFTERLIFE_GFX_EXE_RES_H
+#ifndef ETERNALSLUMBER_GFX_EXE_RES_H
+#define ETERNALSLUMBER_GFX_EXE_RES_H
 
 #include <stdbool.h>
 #include <stdint.h>

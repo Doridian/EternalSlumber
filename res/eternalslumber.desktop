@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=EternalSlumber
+Comment=A native port of Afterlife (needs the game's CD)
+Exec=eternalslumber
+Icon=eternalslumber
+Categories=Game;Simulation;
+Terminal=false

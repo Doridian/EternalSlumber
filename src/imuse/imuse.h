@@ -18,8 +18,8 @@
  * (16666, i.e. 60 Hz). That one call mixes audio when the output wants more,
  * runs fades and deferred commands and the 10 Hz music ducking.
  */
-#ifndef AFTERLIFE_IMUSE_H
-#define AFTERLIFE_IMUSE_H
+#ifndef ETERNALSLUMBER_IMUSE_H
+#define ETERNALSLUMBER_IMUSE_H
 
 #include <stdint.h>
 

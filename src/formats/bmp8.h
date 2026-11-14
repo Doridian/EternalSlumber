@@ -1,5 +1,5 @@
-#ifndef AFTERLIFE_BMP8_H
-#define AFTERLIFE_BMP8_H
+#ifndef ETERNALSLUMBER_BMP8_H
+#define ETERNALSLUMBER_BMP8_H
 
 #include <stddef.h>
 #include <stdint.h>

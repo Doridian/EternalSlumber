@@ -3,8 +3,8 @@
  * Port-only: the game data when no DATA_DIR is given and none is in the
  * default place (a packaged build started from its icon). See datafind.c.
  */
-#ifndef AFTERLIFE_PLATFORM_DATAFIND_H
-#define AFTERLIFE_PLATFORM_DATAFIND_H
+#ifndef ETERNALSLUMBER_PLATFORM_DATAFIND_H
+#define ETERNALSLUMBER_PLATFORM_DATAFIND_H
 
 #include <stdbool.h>
 

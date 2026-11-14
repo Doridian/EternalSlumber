@@ -5,20 +5,21 @@
  * its icon). The player picks the CD (or a folder with its files), or a CD
  * image, whose game files are copied into the pref folder's "data" (as
  * web/pre.ts keeps them in the browser). The choice is kept in the pref
- * folder's data-path.txt (~/.local/share/Afterlife/Afterlife/ on Linux,
- * %APPDATA%\Afterlife\Afterlife\ on Windows, ~/Library/Application
- * Support/Afterlife/Afterlife/ on macOS) and used again while it has the
+ * folder's data-path.txt (~/.local/share/EternalSlumber/EternalSlumber/ on Linux,
+ * %APPDATA%\EternalSlumber\EternalSlumber\ on Windows, ~/Library/Application
+ * Support/EternalSlumber/EternalSlumber/ on macOS) and used again while it has the
  * game data. Where there is no message box or file dialog to ask with (on
  * Linux SDL's dialogs need xdg-desktop-portal or zenity, which a minimal
  * system or a sandbox like the AppImage catalog's lacks), a window of the
  * port's own asks for the CD, folder or image to be dropped on it.
  */
 #include "platform/datafind.h"
+#include "platform/platform.h"
 
 #include <SDL3/SDL.h>
 #include <string.h>
 
-#define TITLE "Afterlife"
+#define TITLE "EternalSlumber"
 
 /* --- the game files --------------------------------------------------------- */
 
@@ -253,7 +254,7 @@ static int ask_what(void)
         SDL_MESSAGEBOX_INFORMATION | SDL_MESSAGEBOX_BUTTONS_LEFT_TO_RIGHT,
         NULL,
         TITLE,
-        "Afterlife needs the files of its CD, which this port doesn't include.\n\n"
+        "EternalSlumber needs the files of the Afterlife CD, which it doesn't include.\n\n"
         "Choose the CD (or a folder with its files, such as an installed Afterlife), "
         "or an image of the CD (.iso, .bin or .cue). The game files of an image are "
         "copied, so the image isn't needed afterwards.\n\n"
@@ -310,9 +311,9 @@ static void drop_draw(SDL_Renderer *r, const char *status, bool error)
     SDL_SetRenderDrawColor(r, 0x20, 0x18, 0x28, 0xFF);
     SDL_RenderClear(r);
     SDL_SetRenderDrawColor(r, 0xF0, 0xC0, 0x40, 0xFF);
-    float y = draw_text(r, MARGIN, "AFTERLIFE", 4) + 8;
+    float y = draw_text(r, MARGIN, "ETERNALSLUMBER", 4) + 8;
     SDL_SetRenderDrawColor(r, 0xE8, 0xE8, 0xE8, 0xFF);
-    y = draw_text(r, y, "Afterlife needs the files of its CD, which this port doesn't include.", 2) + 12;
+    y = draw_text(r, y, "EternalSlumber needs the files of the Afterlife CD, which it doesn't include.", 2) + 12;
     y = draw_text(r, y,
                   "Drop the CD (or a folder with its files, such as an installed Afterlife) or an image of "
                   "the CD (.iso, .bin or .cue) on this window.",
@@ -367,7 +368,7 @@ static bool drop_wait(const char *copies, char *dir, size_t len)
     SDL_Window *win = NULL;
     SDL_Renderer *r = NULL;
     if (!SDL_CreateWindowAndRenderer(TITLE, DROP_W, DROP_H, 0, &win, &r)) {
-        SDL_Log("no file dialog, and no window either (%s): start Afterlife with the folder of the game files "
+        SDL_Log("no file dialog, and no window either (%s): start EternalSlumber with the folder of the game files "
                 "as its argument",
                 SDL_GetError());
         return false;
@@ -413,7 +414,7 @@ static bool drop_wait(const char *copies, char *dir, size_t len)
     SDL_DestroyRenderer(r);
     SDL_DestroyWindow(win);
     if (!got)
-        SDL_Log("no game data: start Afterlife with the folder of the game files as its argument, or drop them "
+        SDL_Log("no game data: start EternalSlumber with the folder of the game files as its argument, or drop them "
                 "on its window");
     return got;
 }
@@ -423,7 +424,7 @@ const char *datafind_data_dir(const char *def, bool ask)
     static char dir[4096];
     if (datafind_has_game_data(def) || !ask)
         return def;
-    char *pref = SDL_GetPrefPath("Afterlife", "Afterlife");
+    char *pref = plat_pref_dir();
     if (!pref)
         return def;
     char kept[4096], copies[4096];

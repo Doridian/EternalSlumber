@@ -8,8 +8,8 @@
  * map_view_set_focus / MapView focus_x, focus_y and set_mask for the
  * request's focus) on its surface. See docs/map.md.
  */
-#ifndef AFTERLIFE_GFX_MAP_OBJECTS_H
-#define AFTERLIFE_GFX_MAP_OBJECTS_H
+#ifndef ETERNALSLUMBER_GFX_MAP_OBJECTS_H
+#define ETERNALSLUMBER_GFX_MAP_OBJECTS_H
 
 #include "gfx/map_view.h"
 

@@ -9,8 +9,8 @@
  * FULL.000 or MEDIUM.000 from a hard-disk install, or "None") and the CD's
  * "CD Path" (ALIFE.000). Lookups try the local index first, then the CD.
  */
-#ifndef AFTERLIFE_GAME_RESOURCE_H
-#define AFTERLIFE_GAME_RESOURCE_H
+#ifndef ETERNALSLUMBER_GAME_RESOURCE_H
+#define ETERNALSLUMBER_GAME_RESOURCE_H
 
 #include <stdbool.h>
 #include <stdint.h>

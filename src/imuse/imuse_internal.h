@@ -3,8 +3,8 @@
  * original's layouts (names from its own debug dump functions), with
  * pointers widened to native size.
  */
-#ifndef AFTERLIFE_IMUSE_INTERNAL_H
-#define AFTERLIFE_IMUSE_INTERNAL_H
+#ifndef ETERNALSLUMBER_IMUSE_INTERNAL_H
+#define ETERNALSLUMBER_IMUSE_INTERNAL_H
 
 #include <stddef.h>
 #include <stdint.h>

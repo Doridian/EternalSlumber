@@ -14,8 +14,8 @@
  * the view toggles. Picking a tool calls build_select_tool (game/build.h);
  * the chooser then sets the item with build_tool_set_item.
  */
-#ifndef AFTERLIFE_UI_CTRLPANEL_H
-#define AFTERLIFE_UI_CTRLPANEL_H
+#ifndef ETERNALSLUMBER_UI_CTRLPANEL_H
+#define ETERNALSLUMBER_UI_CTRLPANEL_H
 
 #include <stdbool.h>
 #include <stdint.h>

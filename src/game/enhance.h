@@ -9,7 +9,7 @@
  * Turned off (Enhancements = 0, --no-enhancements), the port behaves like
  * the original, bugs included. g_enhancements itself starts off, so the
  * tests, which don't call enhance_init, run the original's behaviour unless
- * AFTERLIFE_ENHANCEMENTS=1.
+ * ETERNALSLUMBER_ENHANCEMENTS=1.
  *
  * The settings live in their own INI (ALIFEPORT.INI in the user's settings
  * folder, plat_pref_path), so ALIFE.INI stays exactly what the original
@@ -24,11 +24,11 @@
  *   Fullscreen = 0
  *
  * Precedence: command line (--enhancements, --no-enhancements,
- * --ui-scale=N, --port-ini=FILE), then the AFTERLIFE_ENHANCEMENTS
+ * --ui-scale=N, --port-ini=FILE), then the ETERNALSLUMBER_ENHANCEMENTS
  * environment variable (1 / 0, used by the tests), then the file.
  */
-#ifndef AFTERLIFE_GAME_ENHANCE_H
-#define AFTERLIFE_GAME_ENHANCE_H
+#ifndef ETERNALSLUMBER_GAME_ENHANCE_H
+#define ETERNALSLUMBER_GAME_ENHANCE_H
 
 #include <stdbool.h>
 
@@ -69,7 +69,7 @@ const char *port_settings_path(void);
  * window, whose state is saved at exit) and sets g_enhancements. Arguments
  * it doesn't know are ignored. */
 void enhance_init(int argc, char **argv);
-/* The tests: AFTERLIFE_ENHANCEMENTS=1 / 0 sets g_enhancements. */
+/* The tests: ETERNALSLUMBER_ENHANCEMENTS=1 / 0 sets g_enhancements. */
 void enhance_init_env(void);
 
 /* The UI scale to ask the platform for: 1 with enhancements off, else the

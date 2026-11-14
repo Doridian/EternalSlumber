@@ -11,8 +11,8 @@
  * sim_update calls advisor_update() at the end of each year (and
  * views_refresh_all() does too).
  */
-#ifndef AFTERLIFE_UI_ADVISORS_H
-#define AFTERLIFE_UI_ADVISORS_H
+#ifndef ETERNALSLUMBER_UI_ADVISORS_H
+#define ETERNALSLUMBER_UI_ADVISORS_H
 
 #include <stdbool.h>
 #include <stdint.h>

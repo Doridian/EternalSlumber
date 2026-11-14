@@ -44,8 +44,8 @@
  * The lines Jasper and Aria speak are in the scripts, voiced from the
  * bundles like the advisors' speeches. Game code only; no SDL.
  */
-#ifndef AFTERLIFE_GAME_TUTORIAL_H
-#define AFTERLIFE_GAME_TUTORIAL_H
+#ifndef ETERNALSLUMBER_GAME_TUTORIAL_H
+#define ETERNALSLUMBER_GAME_TUTORIAL_H
 
 #include <stdbool.h>
 #include <stdint.h>

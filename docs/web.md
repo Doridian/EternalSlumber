@@ -6,28 +6,29 @@ Port: the `EMSCRIPTEN` block of `CMakeLists.txt`, `web/shell.html` (the page),
 
 ```sh
 npm ci                                  # the TypeScript compiler for web/*.ts (once)
-emcmake cmake --preset wasm -DAFTERLIFE_WASM_DATA=$PWD/orig
+emcmake cmake --preset wasm -DETERNALSLUMBER_WASM_DATA=$PWD/orig
 cmake --build --preset wasm
-cd build/wasm && python3 -m http.server 8000   # http://localhost:8000/afterlife.html
+cd build/wasm && python3 -m http.server 8000   # http://localhost:8000/eternalslumber.html
 ```
 
 The page must come from a web server (not `file://`). The output is
-`afterlife.html`, `.js`, `.wasm` and, with data, `afterlife.data`.
+`eternalslumber.html`, `.js`, `.wasm` and, with data, `eternalslumber.data`.
 
 ## Game data
 
-- **Built in**: `AFTERLIFE_WASM_DATA` names a folder with the game files.
+- **Built in**: `ETERNALSLUMBER_WASM_DATA` names a folder with the game files.
   CMake packages `ALIFE.INI`, the bundles its `CD Path` and `Resource file`
   name, `ALIFE.EXE` and `ASCEN*.ASC` (names matched case-insensitively) into
-  `afterlife.data`, mounted at `/orig`. With the CD's INI that's `ALIFE.000`,
-  about 150 MB. `AFTERLIFE_WASM_FILES` overrides the list (e.g.
+  `eternalslumber.data`, mounted at `/orig`. With the CD's INI that's `ALIFE.000`,
+  about 150 MB. `ETERNALSLUMBER_WASM_FILES` overrides the list (e.g.
   `"ALIFE.INI;MEDIUM.000;ALIFE.000;ALIFE.EXE;ASCEN001.ASC"`). The data is
   copyrighted: don't put such a build on a public server.
-- **Picked by the player**: without `AFTERLIFE_WASM_DATA` the page asks for
+- **Picked by the player**: without `ETERNALSLUMBER_WASM_DATA` the page asks for
   the CD: a CD image (`.bin` or `.iso`, read by `web/iso9660.ts`), a `.zip`
   of either (read by `web/zip.ts`, the archive.org download as it is), the
   CD's files, or its folder. The files are kept as blobs in an IndexedDB store of
-  its own (`afterlife-game-data`), in 8 MB records (`NAME#000000`, ...) so the
+  its own (`afterlife-game-data`: the port's old name, kept so browsers keep the
+  CD they stored), in 8 MB records (`NAME#000000`, ...) so the
   store's progress bar moves in steps, so this happens once per browser. They are
   copied into `/userdata` at every start. IDBFS can't hold them: browsers cap
   one stored value below ALIFE.000's size. `?pick` in the URL asks again.
@@ -47,7 +48,7 @@ The page must come from a web server (not `file://`). The output is
 
 `.github/workflows/pages.yml` builds the page without game data and publishes
 it on GitHub Pages on every push to `main`: `web/index.html` (the front page,
-with the archive.org link and steps) and `afterlife.html`, `.js` and `.wasm`
+with the archive.org link and steps) and `eternalslumber.html`, `.js` and `.wasm`
 next to it. The job fails if the build has a `.data` package.
 
 ## Main loop
@@ -75,7 +76,7 @@ click or key press; the context is resumed on the first one.
 
 ## Storage
 
-SDL's pref folder `/libsdl/Afterlife/Afterlife/` is an IDBFS mount with
+SDL's pref folder `/libsdl/EternalSlumber/EternalSlumber/` is an IDBFS mount with
 `autoPersist`. `web/pre.ts` loads it before `main` runs, and closing or
 deleting a file there writes it back to IndexedDB. It holds `ALIFEPORT.INI`
 and, on the web, the saved games (`plat_save_dir`; natively they go to the
@@ -114,7 +115,7 @@ them as usual.
 - Alt+Enter and F11 make the canvas fullscreen. SDL keeps F1-F12 and
   Backspace from the browser, so F5 saves instead of reloading.
 - URL arguments: each `?arg=` is passed on the command line after the data
-  folder, e.g. `afterlife.html?arg=ASCEN001.ASC&arg=--no-enhancements`.
+  folder, e.g. `eternalslumber.html?arg=ASCEN001.ASC&arg=--no-enhancements`.
 - Quitting (File > Exit Game, or Quit at the title) ends the program
   (`-sEXIT_RUNTIME`, so `atexit` runs). The page then offers a reload. A crash
   says so too.

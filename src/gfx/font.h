@@ -12,8 +12,8 @@
  * Glyph: width, height, x offset (s8), y offset (s8), then the pixels,
  * MSB first, rows packed without padding.
  */
-#ifndef AFTERLIFE_GFX_FONT_H
-#define AFTERLIFE_GFX_FONT_H
+#ifndef ETERNALSLUMBER_GFX_FONT_H
+#define ETERNALSLUMBER_GFX_FONT_H
 
 #include <stdbool.h>
 #include <stdint.h>

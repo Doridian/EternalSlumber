@@ -1,5 +1,5 @@
 {
-  "name": "afterlife-web",
+  "name": "eternalslumber-web",
   "private": true,
   "description": "Build tools for the TypeScript glue of the WebAssembly build (web/*.ts, docs/web.md)",
   "scripts": {

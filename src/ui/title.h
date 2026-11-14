@@ -22,8 +22,8 @@
  * game), so it runs headless and any key or click skips the current
  * animation (Esc skips them all).
  */
-#ifndef AFTERLIFE_UI_TITLE_H
-#define AFTERLIFE_UI_TITLE_H
+#ifndef ETERNALSLUMBER_UI_TITLE_H
+#define ETERNALSLUMBER_UI_TITLE_H
 
 #include "ui/wm.h"
 

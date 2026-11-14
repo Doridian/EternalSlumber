@@ -1,7 +1,7 @@
 /* SPDX-License-Identifier: AGPL-3.0-or-later */
 /* Shared between microview.c and microview_info.c. */
-#ifndef AFTERLIFE_UI_MICROVIEW_INT_H
-#define AFTERLIFE_UI_MICROVIEW_INT_H
+#ifndef ETERNALSLUMBER_UI_MICROVIEW_INT_H
+#define ETERNALSLUMBER_UI_MICROVIEW_INT_H
 
 #include "ui/wm.h"
 

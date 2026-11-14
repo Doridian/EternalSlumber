@@ -3,7 +3,7 @@
 // Script args: <outfile> <command> [args...]
 //   or         <outfile> batch <cmdfile>   (one command per line, args tab-separated)
 // Output goes to <outfile>; "<outfile>.rc" gets 0 on success, 1 if any command failed.
-//@category Afterlife
+//@category EternalSlumber
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;

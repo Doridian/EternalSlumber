@@ -12,8 +12,8 @@
  *   sx = origin_x + (i - j + height - 1) * hw,  sy = origin_y + (i + j) * hh
  * with hw/hh half a cell at the view's zoom (16 x 8 at zoom 0).
  */
-#ifndef AFTERLIFE_GFX_MAP_VIEW_H
-#define AFTERLIFE_GFX_MAP_VIEW_H
+#ifndef ETERNALSLUMBER_GFX_MAP_VIEW_H
+#define ETERNALSLUMBER_GFX_MAP_VIEW_H
 
 #include <stdbool.h>
 #include <stdint.h>

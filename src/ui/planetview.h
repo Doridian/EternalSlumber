@@ -26,8 +26,8 @@
  * balloons, the menu bar's checks, status bar) comes through
  * planetview_hooks and the setters below. Any hook may be NULL.
  */
-#ifndef AFTERLIFE_UI_PLANETVIEW_H
-#define AFTERLIFE_UI_PLANETVIEW_H
+#ifndef ETERNALSLUMBER_UI_PLANETVIEW_H
+#define ETERNALSLUMBER_UI_PLANETVIEW_H
 
 #include <stdbool.h>
 #include <stdint.h>

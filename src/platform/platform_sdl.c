@@ -138,7 +138,7 @@ EM_JS(void, web_set_favicon, (const uint8_t *rgba, int w, int h), {
         link.type = 'image/png';
         link.href = c.toDataURL('image/png');
     } catch (e) {
-        console.warn('Afterlife: favicon failed', e);
+        console.warn('EternalSlumber: favicon failed', e);
     }
 });
 #endif
@@ -969,9 +969,62 @@ static bool find_ci(const char *dir, const char *name, char *out, size_t out_len
 
 const char *plat_data_dir(void) { return g_data_dir; }
 
+static SDL_EnumerationResult SDLCALL count_entry(void *userdata, const char *dirname, const char *fname)
+{
+    (void)dirname;
+    (void)fname;
+    *(bool *)userdata = true;
+    return SDL_ENUM_SUCCESS;
+}
+
+static bool dir_has_entries(const char *dir)
+{
+    bool any = false;
+    SDL_EnumerateDirectory(dir, count_entry, &any);
+    return any;
+}
+
+/* Removes `path`'s last folder (and, if then empty, its parent) if empty. */
+static void remove_if_empty(char *path)
+{
+    size_t n = strlen(path);
+    for (int up = 0; up < 2 && n > 1; up++) {
+        while (n > 1 && (path[n - 1] == '/' || path[n - 1] == '\\'))
+            path[--n] = '\0';
+        if (!SDL_RemovePath(path)) /* fails unless empty */
+            return;
+        while (n > 0 && path[n - 1] != '/' && path[n - 1] != '\\')
+            path[--n] = '\0';
+    }
+}
+
+char *plat_pref_dir(void)
+{
+    /* The port was called "Afterlife" before: the first time, its pref
+     * folder (settings, saved games, the copied game data) moves over. */
+    static bool migrated;
+    char *dir = SDL_GetPrefPath("EternalSlumber", "EternalSlumber");
+    if (!dir || migrated)
+        return dir;
+    migrated = true;
+    char *old = SDL_GetPrefPath("Afterlife", "Afterlife");
+    if (!old)
+        return dir;
+    if (!dir_has_entries(dir) && dir_has_entries(old)) {
+        SDL_RemovePath(dir);
+        if (SDL_RenamePath(old, dir))
+            SDL_Log("moved the settings folder %s to %s", old, dir);
+        else
+            SDL_CreateDirectory(dir);
+    }
+    remove_if_empty(old);
+    SDL_free(old);
+    return dir;
+}
+
 bool plat_pref_path(const char *name, char *out, size_t out_len)
 {
-    char *dir = SDL_GetPrefPath("Afterlife", "Afterlife");
+    char *dir = plat_pref_dir();
     if (!dir)
         return false;
     SDL_snprintf(out, out_len, "%s%s", dir, name);
@@ -987,7 +1040,7 @@ const char *plat_save_dir(void)
      * built in, or the files the player picked */
     static char dir[1024];
     if (!dir[0]) {
-        char *p = SDL_GetPrefPath("Afterlife", "Afterlife");
+        char *p = plat_pref_dir();
         if (!p)
             return NULL;
         SDL_strlcpy(dir, p, sizeof(dir));
@@ -1101,7 +1154,7 @@ EM_JS(int, web_download, (const char *path, const char *name), {
         setTimeout(function () { URL.revokeObjectURL(url); }, 60000);
         return 1;
     } catch (e) {
-        console.warn('Afterlife: download failed', e);
+        console.warn('EternalSlumber: download failed', e);
         return 0;
     }
 });

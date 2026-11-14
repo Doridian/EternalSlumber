@@ -18,8 +18,8 @@
  * the last call. sys_pump calls it on every pump, which is how often the
  * original could have noticed a callback's effects anyway; tm_wait polls it.
  */
-#ifndef AFTERLIFE_GAME_TIMER_H
-#define AFTERLIFE_GAME_TIMER_H
+#ifndef ETERNALSLUMBER_GAME_TIMER_H
+#define ETERNALSLUMBER_GAME_TIMER_H
 
 #include <stdbool.h>
 #include <stdint.h>

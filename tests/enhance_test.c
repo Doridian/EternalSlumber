@@ -4,7 +4,7 @@
  *   - g_enhancements is off until enhance_init, the settings default to on;
  *   - ALIFEPORT.INI round trip, defaults, comments, other sections, junk;
  *   - enhance_init: --port-ini, --enhancements / --no-enhancements,
- *     --ui-scale, AFTERLIFE_ENHANCEMENTS, and the scale it asks for;
+ *     --ui-scale, ETERNALSLUMBER_ENHANCEMENTS, and the scale it asks for;
  *   - the port window's state in the file (size, position, maximized,
  *     fullscreen) and --window-size / --fullscreen / --windowed;
  *   - the presentation layout and the mouse mapping at UI scales 1-3, the
@@ -98,32 +98,32 @@ static void test_settings(const char *dir)
     CHECK(port_settings_save(path, &f));
     char arg_ini[1100];
     snprintf(arg_ini, sizeof arg_ini, "--port-ini=%s", path);
-    SDL_unsetenv_unsafe("AFTERLIFE_ENHANCEMENTS");
+    SDL_unsetenv_unsafe("ETERNALSLUMBER_ENHANCEMENTS");
     {
-        char *argv[] = {"afterlife", arg_ini, "orig", NULL};
+        char *argv[] = {"eternalslumber", arg_ini, "orig", NULL};
         enhance_init(3, argv);
         CHECK(strcmp(port_settings_path(), path) == 0);
         CHECK(g_enhancements && g_port_settings.ui_scale == 2);
         CHECK(enhance_ui_scale_request() == 2);
     }
     {
-        char *argv[] = {"afterlife", arg_ini, "--no-enhancements", "--ui-scale=3", NULL};
+        char *argv[] = {"eternalslumber", arg_ini, "--no-enhancements", "--ui-scale=3", NULL};
         enhance_init(4, argv);
         CHECK(!g_enhancements && g_port_settings.ui_scale == 3);
         CHECK(enhance_ui_scale_request() == 1); /* no scaling without enhancements */
     }
-    SDL_setenv_unsafe("AFTERLIFE_ENHANCEMENTS", "0", 1);
+    SDL_setenv_unsafe("ETERNALSLUMBER_ENHANCEMENTS", "0", 1);
     {
-        char *argv[] = {"afterlife", arg_ini, NULL};
+        char *argv[] = {"eternalslumber", arg_ini, NULL};
         enhance_init(2, argv);
         CHECK(!g_enhancements); /* the environment beats the file */
     }
     {
-        char *argv[] = {"afterlife", arg_ini, "--enhancements", NULL};
+        char *argv[] = {"eternalslumber", arg_ini, "--enhancements", NULL};
         enhance_init(3, argv);
         CHECK(g_enhancements); /* the command line beats the environment */
     }
-    SDL_unsetenv_unsafe("AFTERLIFE_ENHANCEMENTS");
+    SDL_unsetenv_unsafe("ETERNALSLUMBER_ENHANCEMENTS");
     /* overrides aren't written back unless asked: the file is unchanged */
     PortSettings back;
     port_settings_defaults(&back);
@@ -139,14 +139,14 @@ static void test_settings(const char *dir)
     /* no file at all: defaults, enhancements on, automatic scale */
     remove(path);
     {
-        char *argv[] = {"afterlife", arg_ini, NULL};
+        char *argv[] = {"eternalslumber", arg_ini, NULL};
         enhance_init(2, argv);
         CHECK(g_enhancements && g_port_settings.ui_scale == 0);
         CHECK(enhance_ui_scale_request() == 0);
     }
     /* ... and --no-enhancements opts out */
     {
-        char *argv[] = {"afterlife", arg_ini, "--no-enhancements", NULL};
+        char *argv[] = {"eternalslumber", arg_ini, "--no-enhancements", NULL};
         enhance_init(3, argv);
         CHECK(!g_enhancements && enhance_ui_scale_request() == 1);
     }
@@ -207,19 +207,19 @@ static void test_window_state(const char *dir)
     char arg_ini[1100];
     snprintf(arg_ini, sizeof arg_ini, "--port-ini=%s", path);
     {
-        char *argv[] = {"afterlife", arg_ini, NULL};
+        char *argv[] = {"eternalslumber", arg_ini, NULL};
         enhance_init(2, argv);
         CHECK(g_port_settings.window.w == 1200 && g_port_settings.window.fullscreen && g_port_settings.window.maximized);
     }
     {
-        char *argv[] = {"afterlife", arg_ini, "--window-size=900x650", "--windowed", NULL};
+        char *argv[] = {"eternalslumber", arg_ini, "--window-size=900x650", "--windowed", NULL};
         enhance_init(4, argv);
         CHECK(g_port_settings.window.w == 900 && g_port_settings.window.h == 650);
         CHECK(!g_port_settings.window.fullscreen && !g_port_settings.window.maximized);
         CHECK(g_port_settings.window.x == 5 && g_port_settings.window.y == 6);
     }
     {
-        char *argv[] = {"afterlife", arg_ini, "--window-size=bogus", "--fullscreen", NULL};
+        char *argv[] = {"eternalslumber", arg_ini, "--window-size=bogus", "--fullscreen", NULL};
         enhance_init(4, argv);
         CHECK(g_port_settings.window.w == 1200 && g_port_settings.window.fullscreen);
     }

@@ -28,8 +28,8 @@
  * infoviews_install_hooks in ui/views.h), as do views_refresh_all and the
  * build tools. Context and hooks: ui/views.h.
  */
-#ifndef AFTERLIFE_UI_MACRO_H
-#define AFTERLIFE_UI_MACRO_H
+#ifndef ETERNALSLUMBER_UI_MACRO_H
+#define ETERNALSLUMBER_UI_MACRO_H
 
 #include <stdbool.h>
 #include <stdint.h>

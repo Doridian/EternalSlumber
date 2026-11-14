@@ -10,8 +10,8 @@
  * Tile sets are looked up by slot like the original's tile_set_entries
  * (0x57d478): resource N is bound to slot N-1 with tile_draw_bind_set().
  */
-#ifndef AFTERLIFE_GFX_TILE_DRAW_H
-#define AFTERLIFE_GFX_TILE_DRAW_H
+#ifndef ETERNALSLUMBER_GFX_TILE_DRAW_H
+#define ETERNALSLUMBER_GFX_TILE_DRAW_H
 
 #include <stdbool.h>
 #include <stdint.h>

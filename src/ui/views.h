@@ -12,8 +12,8 @@
  * views_set_context(). Calls into the shell's own modules go through
  * views_hooks; any hook may be NULL.
  */
-#ifndef AFTERLIFE_UI_VIEWS_H
-#define AFTERLIFE_UI_VIEWS_H
+#ifndef ETERNALSLUMBER_UI_VIEWS_H
+#define ETERNALSLUMBER_UI_VIEWS_H
 
 #include <stdbool.h>
 
